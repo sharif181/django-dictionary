@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Dictionary</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5 bg-light">
+        <h2>Search anyword you wants</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <input name="word" type="text" class="form-control" placeholder="Enter any word">
+            </div>
+            <button type="submit" class="btn btn-primary">search</button>
+          </form>
+          <p class="lead"><h5 class="display-4">Meaning:</h5>{{meaning|capfirst}}</p>
+          <p class="lead"><h5 class="display-4">Synonyms:</h5> {% for s in synonyms %} {{s|capfirst}}, {% endfor %} </p>
+          <p class="lead"><h5 class="display-4">Antonyms:</h5> {% for a in antonyms %} {{a|capfirst}}, {% endfor %} </p>
+    </div>
+</body>
+</html>
